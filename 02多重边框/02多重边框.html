@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多重边框</title>
+</head>
+<body>
+	<div id="div1">
+		基本用法：
+		box-shadow属性可以设置一个或多个下拉阴影的框。css3属性，
+		参数分别为:(1)水平阴影的位置,必需，允许负值(2)垂直阴影的位置,
+		必需，允许负值(3)模糊距离，可选(4)阴影大小，可选(5)设置为inset时，阴影为元素内侧阴影，可选。
+	</div>
+	<div id="div2">
+		box-shadow支持逗号分隔，利用多层投影实现多层边框，层层叠加，第一层投影
+		位于最上，所以如果希望第二边框宽度为5px的话，就要设置为阴影宽度15px。
+		【优点】不会影响布局,可贴合圆角【缺点】只能模拟实线边框。
+	</div>
+	<div id="div3">
+		使用outline实现两重边框，因为outline不支持逗号分隔。
+		outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。可以设置的属性分别是（按顺序）：outline-color, outline-style, outline-width【缺点】不一定会贴合圆角
+	</div>
+	<div id="div4">
+		使用outline-offset控制与元素边缘的距离。
+	</div>
+	<style type="text/css">
+		div{
+			width: 300px;height: 150px;
+			margin: 100px;
+			background: #ccc;
+		}
+		#div1{
+			/*border:10px solid #000;*/
+			box-shadow: 10px 10px 10px 1px red,10px 10px 10px 1px blue inset ;
+			
+		}
+		#div2{
+			/*border-radius: 50px;*/
+			box-shadow: 0 0 0 10px red,0 0 0 15px blue;
+		}
+		#div3{
+			border:10px solid red;
+			outline: blue dashed 5px;
+		}
+		#div4{
+			outline: #fff dashed 1px;
+			outline-offset:-10px;
+		}
+	</style>
+	
+</body>
+</html>

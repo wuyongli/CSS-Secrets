@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>半透明边框</title>
+</head>
+<body>
+	<div id="div1">
+		设置白色虚线边框，可看到黑色背景侵入了边框的范围。
+	</div>
+	<div id="div2">
+		设置透明白色边框，由于黑色背景侵入，边框颜色变黑。
+	</div>
+	<div id="div3">
+		设置黑色透明边框，由于黑色背景侵入，透过透明边框看的的是侵入的黑色底层。
+	</div>
+	<div id="div4">
+		设置background-clip: padding-box;透明边框成功
+		<p>background-clip属性指定背景绘制区域。css3属性，默认为border-box</p>
+	</div>
+	<style type="text/css">
+	body{
+		/*background: #0ff;*/
+		background: url('./images/bg.jpg');
+		background-size: 100% 100%;
+		color: #fff;
+	}
+	div{
+		width: 300px;
+		height: 150px;
+		background-color: #000;
+		margin: 100px;
+	}
+	#div1{
+		border:30px dashed #fff;
+	}
+	#div2{
+		border:30px solid rgba(255,255,255,0.5);
+	}
+	#div3{
+		border:30px solid rgba(0,0,0,0.5);
+	}
+	#div4{
+		background-clip: padding-box;
+		border:30px solid rgba(0,0,0,0.5);
+	}
+	</style>
+</body>
+</html>
