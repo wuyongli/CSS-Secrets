@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框内圆角</title>
+</head>
+<body>
+	<div id="div1">
+		<p>两个元素实现边框内圆角</p>
+	</div>
+	<div id="div2">box-shadow实现边框内圆角</div>
+	<style type="text/css">
+		*{padding: 0;margin: 0;box-sizing:border-box;}
+		div{
+			width: 300px;height: 150px;
+			margin: 100px;
+			background-color: #ccc;
+		}
+		#div1{
+			background-color: #655;
+			padding: 10px;
+		}
+		#div1 p{
+			padding:10px;height:130px;
+			background-color: #ccc;
+			border-radius: 0.8em;
+		}
+
+		#div2{
+			padding: 10px;
+			outline: 10px solid #655;
+			border-radius: 0.8em;
+			box-shadow:0 0 0 0.4em #655;   /*取值一般为圆角度的0.5倍*/
+		}
+	</style>
+</body>
+</html>

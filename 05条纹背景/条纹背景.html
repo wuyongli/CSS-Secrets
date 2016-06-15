@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条纹背景</title>
+</head>
+<body>
+	<div id="div1">1</div>
+	<div id="div2">2</div>
+	<div id="div3">3</div>
+	<div id="div4">4</div>
+	<div id="div5">5</div>
+	<div id="div6">6</div>
+	<div id="div7">7</div>
+	<div id="div8">8</div>
+	<div id="div9">9</div>
+	<div id="div10">10</div>
+	<div id="div11">11</div>
+	<div id="div12">12</div>
+	<div id="div13">13</div>
+	<style type="text/css">
+	div{
+		width: 300px;height: 300px;
+		margin: 100px;
+		background-color: #ccc;
+		background-size: 100px 100px;
+		color:#fff;
+	}
+	#div1{
+		background: linear-gradient(#fb3 20%, #58a 80%);   
+		 /*颜色过渡部分为20%-80%这个区域*/
+	}
+	#div2{
+		background: linear-gradient(#fb3 50%, #58a 50%);
+		/*颜色过渡部分为50%-50%这个区域，即颜色发生突变，没有渐变效果*/
+	}
+	#div3{
+		background: linear-gradient(#fb3 30%, #58a 70%);
+		background-size: 100% 50px;   /*必须渐变之后指定size值，不然size值无效*/
+	}
+	#div4{
+		border: 1px solid #ccc;
+		background: linear-gradient(#fb3 20%, #58a 20%,#58a 50%,red 50%);
+		/*颜色在20%，50%这两个部分转变，没有渐变效果*/
+		background-size: 100% 150px;   
+		background-repeat: no-repeat;
+	}
+	#div5{
+		border: 1px solid #ccc;
+		background: linear-gradient(#fb3 20%, #58a 30%,#58a 50%,red 60%);
+		/*颜色在20%-30%，50%-60%这两个部分转变，产生渐变效果*/
+		background-size: 100% 150px;   
+		background-repeat: no-repeat;
+	}
+	/*纵向条纹，使用关键字，或使用角度值*/
+	#div6{
+		/*不同浏览器写法略有不同*/
+		background: linear-gradient(to right,#fb3 50%, #58a 50%);  
+		background-size: 50px 100%;
+		/*则条纹宽度为25px*/
+	}
+	/*斜向条纹*/
+	#div7{
+		border: 1px solid #ccc;
+		background: linear-gradient(135deg,#fb3 50%, #58a 50%);  
+		background-size: 50px 50px;   
+		/*可看出每个三角形直角边为50px*/
+		background-repeat: no-repeat;  /*是否重复*/
+	}
+	#div8{
+		background: linear-gradient(135deg,#fb3 25%, #58a 25%,#58a 50%,#fb3 50%,#fb3 75%, #58a 75%);  
+		/*background-size: 50px 50px; */
+		background-size: 70.71px 70.71px;   
+		/*若要条纹宽度为25px，此处设置为根号2倍的50px*/
+	}
+	/*重复的线性渐变*/
+	#div9{
+		background: repeating-linear-gradient(#fb3, #58a 50px);
+	}
+	#div10{
+		background: repeating-linear-gradient(135deg,#fb3 0, #fb3 25px,#58a 0, #58a 50px);
+	}
+	#div11{
+		background: repeating-linear-gradient(#fb3, #58a,red 50px);
+	}
+	#div12{
+		background: repeating-linear-gradient(45deg,#fb3,#fb3 15px, #58a 0,#58a 30px,red 0,red 45px);
+	}
+
+	/*灵活的同色系条纹*/
+	#div13{
+		background: #58a;
+		background-image: repeating-linear-gradient(45deg,hsla(0,0%,100%,0.5),hsla(0,0%,100%,0.5) 20%,transparent 0,transparent 40%);
+	}
+</body>
+</html>

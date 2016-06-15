@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>灵活的背景定位</title>
+</head>
+<body>
+	<div id="div1">自定义背景图定位</div>
+	<div id="div2">背景图偏移量为内边距</div>
+	<div id="div3">使用calc()函数进行计算</div>
+	<style type="text/css">
+	div{
+		width: 300px;height: 300px;
+		margin: 100px;
+		background:#ccc url('../images/bg2.jpg') no-repeat;
+		background-size: 100px 100px;
+	}
+	#div1{
+		/*
+			background-position定位方式：
+			（1）关键字：
+				    top left
+				    top center
+				    top right
+				    center left
+				    center center
+				    center right
+				    bottom left
+				    bottom center
+				    bottom right
+				如果只规定了一个关键字，另一个默认为center
+			（2）x%  y%
+				距离左边x%，距离顶部y%,
+				如果只规定了一个值，另一个默认为50%
+			（3）x  y  单位为px或其他css单位
+				距离左边x，距离顶部y,
+				如果只规定了一个值，另一个为50%
+				(2)(3)两种可以混用，如：background-position: 100px 20%;
+			（4）css3中进行拓展，支持任意角度偏移量，在偏移量前指定方向关键字（top right bottom left）
+			注意：对于不支持该拓展语法的浏览器中，需要提供回退方案,如下。
+
+		*/
+		background-position: bottom right;/*回退方案*/
+		background-position: bottom 10% right 10px ;
+	}
+	#div2{
+		padding: 15px;
+		background-origin: content-box;
+		/*background-position: bottom right; */   /*可配合使用*/
+	}
+	#div3{
+		background-position:top calc(100% - 10px) left calc(100% - 10px);
+	}
+	</style>
+</body>
+</html>
