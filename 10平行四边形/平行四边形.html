@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">first</div>
+	1.使用2D转换，图形和图形内部内容都发生了转换
+	<div id="div2"><p class="text">嵌套</p></div>
+	2.使用嵌套，首先对整体进行转换，然后对内部内容逆转换
+	<div id="div3"></div>
+	3.使用伪元素
+	<style type="text/css">
+	div{
+		width: 150px;height: 70px;
+		margin: 100px 0 0 100px;
+		background-color: #ccc;
+		background-size: 100px 100px;
+		color:#fff;
+		font-size: 30px;
+		text-align: center;line-height: 70px;
+	}
+	#div1{
+		transform:skew(-30deg,0);
+		background-image: url("../images/bg2.jpg");
+	}
+
+	#div2{
+		transform:skew(-30deg,0);
+		overflow: hidden;
+	}
+	#div2 .text{
+		margin: 0;
+		background-image: url("../images/bg2.jpg");
+		transform:skew(30deg,0);
+	}
+</body>
+</html>
